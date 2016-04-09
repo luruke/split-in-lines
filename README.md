@@ -1,2 +1,3 @@
-# split-lines
+# split-in-lines
 Take an HTML element with text, and split it in lines.
+

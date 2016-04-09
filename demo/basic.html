@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+  <head>
+    <style>
+      h1 {
+        font-size: 120px;
+      }
+      .split-lines-outer {
+        overflow-y: hidden;
+      }
+
+      .split-lines-inner {
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="text">Hello this is just an example test!</h1>
+    <script src="../index.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/TweenMax.min.js"></script>
+
+    <script>
+      var el = document.getElementById('text');
+      var split = new SplitInLines(el);
+      var lines = document.querySelectorAll('.split-lines-inner');
+
+      var tl = new TimelineMax({
+        onComplete: () => {
+          split.clear();
+        }
+      });
+
+      tl.staggerFromTo(lines, 0.5, { yPercent: 100 }, { yPercent: 0 }, 0.1);
+    </script>
+  </body>
+</html>
